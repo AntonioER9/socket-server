@@ -31,7 +31,7 @@ export class WssService {
     WssService._instance = new WssService(options);
   }
 
-  public sendMessage(type: string, payload: Object) {
+  public sendMessage(type: string, payload: Object) { //emitir el mensaje
     this.wss.clients.forEach(client => {
       if (client.readyState === WebSocket.OPEN) {
         client.send(JSON.stringify({ type, payload }));

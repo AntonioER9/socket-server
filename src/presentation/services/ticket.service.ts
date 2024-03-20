@@ -43,7 +43,7 @@ export class TicketService {
     }
 
     this.tickets.push(ticket);
-    this.onTicketNumberChanged(); //?WS
+    this.onTicketNumberChanged(); //?WS se enviar
 
     return ticket;
   }
@@ -81,7 +81,7 @@ export class TicketService {
     return { status: 'ok' }
   }
 
-  private onTicketNumberChanged() {
+  private onTicketNumberChanged() {// emitir que cambio el contador de tickets
     this.wssService.sendMessage('on-ticket-count-changed', this.pendingTickets.length);
   }
 
